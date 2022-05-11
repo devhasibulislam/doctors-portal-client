@@ -26,29 +26,29 @@ const Services = () => {
         }
     ];
     return (
-        <div className='my-32'>
+        <div className='mt-20'>
             <h4 className='uppercase text-center text-primary font-bold'>Our Services</h4>
             <h2 className='text-center text-5xl mt-4'>Services We Provide</h2>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-0 px-4 mt-16'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-4 px-4 mt-10'>
                 {
                     servicesInformations.map(serviceInformation => <div
                         key={serviceInformation.id}
-                        class="card glass pt-8">
+                        className="card glass pt-8">
                         <figure><img src={serviceInformation.img} alt="car!" /></figure>
-                        <div class="card-body">
-                            <h2 class="card-title">{serviceInformation.title}</h2>
+                        <div className="card-body">
+                            <h2 className="card-title">{serviceInformation.title}</h2>
                             <p>{serviceInformation.desc}</p>
                         </div>
                     </div>)
                 }
             </div>
-            <div class="hero min-h-screen lg:mt-0 md:mt-0 mt-4">
-                <div class="hero-content flex-col lg:flex-row">
-                    <img src={treatment} class="rounded-lg shadow-2xl lg:w-1/2" alt='treatment_children' />
+            <div className="hero min-h-screen mt-10">
+                <div className="hero-content flex-col lg:flex-row">
+                    <img src={treatment} className="rounded-lg shadow-2xl lg:w-1/2" alt='treatment_children' />
                     <div className='lg:ml-12 md:ml-8 lg:w-1/2 w-full'>
-                        <h1 class="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
-                        <p class="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-                        <button class="btn border-0 font-bold text-white bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC]">Get Started</button>
+                        <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
+                        <p className="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+                        <button className="btn border-0 font-bold text-white bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC]">Get Started</button>
                     </div>
                 </div>
             </div>
