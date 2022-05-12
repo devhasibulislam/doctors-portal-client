@@ -6,7 +6,7 @@ import marker from '../../assets/icons/marker.svg';
 const Appointment = () => {
     const appointmentInformations = [
         {
-            id: 1,
+            _id: 1,
             title: "Opening Hours",
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, ipsam.",
             icon: clock,
@@ -14,7 +14,7 @@ const Appointment = () => {
             bgTo: '#0FCFEC'
         },
         {
-            id: 2,
+            _id: 2,
             title: "Contact us now",
             desc: "+000 123 456789",
             icon: marker,
@@ -22,7 +22,7 @@ const Appointment = () => {
             bgTo: '#0FCFEC'
         },
         {
-            id: 3,
+            _id: 3,
             title: "Visit our location",
             desc: "Brooklyn, NY 10036, United States",
             icon: phone,
@@ -35,13 +35,13 @@ const Appointment = () => {
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-0 px-4 -mt-8'>
             {
                 appointmentInformations.map(appointmentInformation => <div
-                    key={appointmentInformation.id}
-                    class={`card card-side lg:flex-row md:flex-row flex-col
-                        ${appointmentInformation.id !== 2 ? `bg-gradient-to-r from-[${appointmentInformation.bgFrom}] to-[${appointmentInformation.bgTo}]` : 'bg-[#3A4256]'} 
+                    key={appointmentInformation._id}
+                    className={`card card-side lg:flex-row md:flex-row flex-col
+                        ${appointmentInformation._id !== 2 ? `bg-gradient-to-r from-[${appointmentInformation.bgFrom}] to-[${appointmentInformation.bgTo}]` : 'bg-[#3A4256]'} 
                         shadow-xl p-4`}>
                     <figure><img src={appointmentInformation.icon} alt="appointment" className='lg:w-full md:w-full w-1/4' /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title text-white">{appointmentInformation.title}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title text-white">{appointmentInformation.title}</h2>
                         <p className='text-white'>{appointmentInformation.desc}</p>
                     </div>
                 </div>)

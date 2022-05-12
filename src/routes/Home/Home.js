@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../shared/Footer/Footer';
 import Appointment from './Appointment';
 import AppointmentDirect from './AppointmentDirect';
 import Banner from './Banner';
@@ -25,10 +26,12 @@ const Home = () => {
 
                 {/* Testimonial */}
                 <Testimonial />
-                
+
                 {/* contact */}
                 <Contact />
             </div>
+            {/* footer */}
+            <Footer />
         </div>
     );
 };
