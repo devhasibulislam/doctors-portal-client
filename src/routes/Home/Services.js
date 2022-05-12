@@ -3,6 +3,7 @@ import cavity from '../../assets/images/cavity.png';
 import fluoride from '../../assets/images/fluoride.png';
 import whitening from '../../assets/images/whitening.png';
 import treatment from '../../assets/images/treatment.png';
+import StaticBtn from '../../components/StaticBtn/StaticBtn';
 
 const Services = () => {
     const servicesInformations = [
@@ -48,7 +49,7 @@ const Services = () => {
                     <div className='lg:ml-12 md:ml-8 lg:w-1/2 w-full'>
                         <h1 className="text-5xl font-bold">Exceptional Dental Care, on Your Terms</h1>
                         <p className="py-6">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
-                        <button className="btn border-0 font-bold text-white bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC]">Get Started</button>
+                        <StaticBtn>Get Started</StaticBtn>
                     </div>
                 </div>
             </div>

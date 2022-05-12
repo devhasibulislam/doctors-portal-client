@@ -1,5 +1,13 @@
 # Doctors Portal
-#
+`Live site`: [click here](https://doctors-portal-d1164.web.app/)  
+`Client side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-client)  
+`Server side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-server)
+
+**Wanna use this site as yours?**
+```bash
+git clone https://github.com/hasibulislam999/doctors-portal-client.git
+```
+
 
 ## For Client Side:
 * React router

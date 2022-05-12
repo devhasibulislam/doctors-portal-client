@@ -1,6 +1,7 @@
 import React from 'react';
 import appointment from '../../assets/images/appointment.png';
 import doctor from '../../assets/images/doctor-small.png';
+import StaticBtn from '../../components/StaticBtn/StaticBtn';
 
 const AppointmentDirect = () => {
     return (
@@ -24,7 +25,7 @@ const AppointmentDirect = () => {
                     <p className='text-white py-6'>
                         It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
                     </p>
-                    <button className="btn border-0 font-bold text-white bg-gradient-to-r from-[#19D3AE] to-[#0FCFEC]">Get Started</button>
+                    <StaticBtn>Get Started</StaticBtn>
                 </div>
             </div>
         </div>

@@ -16,12 +16,16 @@ const Home = () => {
             >
                 {/* appointment information */}
                 <Appointment />
+
                 {/* services */}
                 <Services />
+
                 {/* appointment direct */}
                 <AppointmentDirect />
+
                 {/* Testimonial */}
                 <Testimonial />
+                
                 {/* contact */}
                 <Contact />
             </div>
