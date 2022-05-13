@@ -14,7 +14,7 @@ const Services = (props) => {
         getServices();
     }, []);
     return (
-        <div className='mt-20'>
+        <div className='my-20'>
             <h3 className='text-primary text-2xl text-center'>Available Appointments on {format(selected, 'PP')}</h3>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 lg:px-0 md:px-4 px-4 mt-10'>
                 {

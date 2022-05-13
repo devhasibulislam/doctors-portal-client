@@ -14,7 +14,7 @@ const Banner = (props) => {
             >
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={chair} className="rounded-lg shadow-2xl lg:w-1/2" alt='hero_image' />
-                    <div className='w-1/2 text-center'>
+                    <div className='lg:w-1/2 md:w-1/2 w-full text-center'>
                         <div className='bg-white inline-block shadow-2xl rounded-xl'>
                             <DayPicker
                                 mode='single'

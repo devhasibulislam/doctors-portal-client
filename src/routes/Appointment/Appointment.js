@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import Footer from '../../shared/Footer/Footer';
 import Banner from './Banner';
 import Modal from './Modal';
@@ -10,6 +11,7 @@ const Appointment = () => {
 
     return (
         <div>
+            <PageTitle title={'doctors portal - appointment'} />
             {/* banner */}
             <Banner
                 selected={selected}

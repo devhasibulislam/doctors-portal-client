@@ -1,30 +1,22 @@
 # Doctors Portal
 `Live site`: [click here](https://doctors-portal-d1164.web.app/)  
-`Client side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-client)  
 `Server side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-server)
 
-**Wanna use this site as yours?**
+**Wanna use this as your client side**
 ```bash
 git clone https://github.com/hasibulislam999/doctors-portal-client.git
 ```
 
 
-## For Client Side:
+## Technologies used here:
 * React router
+* Google firebase
 * Tailwind CSS
-
----
-
-## For Server Side:
-* Express
-* Cors
-* Body-Parser
-* MongoDB
-* JWT
-* DotEnv
-* NodeMon
+* React firebase hooks
+* React helmet
+* React day picker
 
 **To install them, copy following:**
 ```bash
-npm i express cors body-parser mongodb jsonwebtoken jwt dotenv nodemon
+npm i firebase react-router-dom@6 react-firebase-hooks react-toastify react-helmet-async react-day-picker date-fns
 ```

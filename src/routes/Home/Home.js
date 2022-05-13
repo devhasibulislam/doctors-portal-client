@@ -1,4 +1,5 @@
 import React from 'react';
+import PageTitle from '../../components/PageTitle/PageTitle';
 import Footer from '../../shared/Footer/Footer';
 import Appointment from './Appointment';
 import AppointmentDirect from './AppointmentDirect';
@@ -10,6 +11,7 @@ import Testimonial from './Testimonial';
 const Home = () => {
     return (
         <div>
+            <PageTitle title={'doctors portal - home'} />
             {/* banner */}
             <Banner />
             <div

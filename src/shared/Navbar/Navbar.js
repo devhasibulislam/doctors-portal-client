@@ -1,14 +1,33 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import CustomLink from '../../components/CustomLink/CustomLink';
+import auth from '../../firebase.init';
 
 const Navbar = () => {
+    const [user] = useAuthState(auth);
+    console.log(user);
+
     const navItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>
         <li><CustomLink to='/about'>About</CustomLink></li>
         <li><CustomLink to='/appointment'>Appointment</CustomLink></li>
         <li><CustomLink to='/reviews'>Reviews</CustomLink></li>
         <li><CustomLink to='/contactUs' className='whitespace-nowrap'>Contact Us</CustomLink></li>
-        <li><CustomLink to='/login'>Login</CustomLink></li>
+        {
+            user
+                ?
+                <li className='shadow rounded-xl'
+                    onClick={() => signOut(auth)}>
+                    <CustomLink to='/login'>
+                        <span className='bg-secondary px-3 py-1 rounded-full'>{user?.displayName?.split(' ')[0]}</span>
+                        <span className='border mx-1'></span>
+                        <span className='bg-red-500 px-3 py-1 rounded-full text-white'>Logout</span>
+                    </CustomLink>
+                </li>
+                :
+                <li><CustomLink to='/login'>Login</CustomLink></li>
+        }
     </>
     return (
         <div className='bg-white sticky top-0 z-50 shadow'>
