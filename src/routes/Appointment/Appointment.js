@@ -14,7 +14,7 @@ const Appointment = () => {
     //     setSelected(new Date());
     // }
 
-    console.log(selected);
+    // console.log(selected);
 
     return (
         <div>
@@ -31,13 +31,10 @@ const Appointment = () => {
                         {/* services */}
                         <Services
                             selected={selected}
+                            treatment={treatment}
                             setTreatment={setTreatment}
                         />
-                        {/* modal */}
-                        <Modal
-                            treatment={treatment}
-                            date={selected}
-                        />
+                        
                     </div>
                     :
                     <div class="alert alert-warning shadow-lg my-12 justify-center container mx-auto">

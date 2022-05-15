@@ -12,6 +12,8 @@ import Reviews from './routes/Reviews/Reviews';
 import Navbar from './shared/Navbar/Navbar';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import Dashboard from './routes/Dashboard/Dashboard';
+import MyAppointments from './routes/Dashboard/MyAppointments';
 
 function App() {
   return (
@@ -27,7 +29,14 @@ function App() {
             <Appointment />
           </RequireAuth>
         } />
-        <Route path='/reviews' element={<Reviews />} />
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        } >
+          <Route index element={<MyAppointments />} /> {/* default one */}
+          <Route path='/dashboard/reviews' element={<Reviews />} />
+        </Route>
         <Route path='/contactUs' element={<ContactUs />} />
         <Route path='/login' element={<Login />} />
         <Route path='/reset' element={<Reset />} />

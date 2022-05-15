@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Modal = (props) => {
-    const { treatment, date } = props;
+    const { treatment, date, refetch } = props;
     const { _id, name, slots } = treatment;
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [user] = useAuthState(auth);
@@ -36,6 +36,7 @@ const Modal = (props) => {
             console.log(data);
             if (data.success) {
                 toast(`booking added on ${formattedDate} at ${slot}`);
+                refetch();
             } else {
                 toast.error(`sorry, you've already booked it on ${data.result.appointmentDate} at ${data.result.appointmentTime}`);
             }
@@ -46,6 +47,7 @@ const Modal = (props) => {
         setFormSubmitted(true)
         event.target.reset();
     };
+    
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -62,7 +64,7 @@ const Modal = (props) => {
                             disabled={formSubmitted}
                         >
                             {
-                                slots?.map(slot => <option key={_id} value={slot} className="bg-base-200">{slot}</option>)
+                                slots?.map((slot, index) => <option key={index} value={slot} className="bg-base-200">{slot}</option>)
                             }
                         </select>
                         <input required type="text" name='name' id='name' value={user?.displayName} disabled className="input input-bordered w-full" />
