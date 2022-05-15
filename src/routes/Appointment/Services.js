@@ -1,21 +1,27 @@
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
+import Loading from '../../components/Loading/Loading';
+const axios = require('axios').default;
 
 const Services = (props) => {
     const { selected, setTreatment } = props;
     const [services, setServices] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        const url = `services.json`;
         const getServices = async () => {
-            const request = await fetch(url);
-            const response = await request.json();
-            setServices(response);
+            const url = `http://localhost:5000/services`;
+            const { data } = await axios.get(url);
+            setServices(data);
+            setLoading(!loading);
         };
         getServices();
     }, []);
+
     return (
         <div className='my-20'>
             <h3 className='text-primary text-2xl text-center'>Available Appointments on {format(selected, 'PP')}</h3>
+            {loading && <Loading />}
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 lg:px-0 md:px-4 px-4 mt-10'>
                 {
                     services.map(service => <div

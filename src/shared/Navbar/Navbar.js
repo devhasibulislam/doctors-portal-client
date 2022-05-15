@@ -6,7 +6,6 @@ import auth from '../../firebase.init';
 
 const Navbar = () => {
     const [user] = useAuthState(auth);
-    console.log(user);
 
     const navItems = <>
         <li><CustomLink to='/home'>Home</CustomLink></li>

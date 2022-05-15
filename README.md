@@ -15,8 +15,10 @@ git clone https://github.com/hasibulislam999/doctors-portal-client.git
 * React firebase hooks
 * React helmet
 * React day picker
+* React Axios
+* React query
 
 **To install them, copy following:**
 ```bash
-npm i firebase react-router-dom@6 react-firebase-hooks react-toastify react-helmet-async react-day-picker date-fns
+npm i firebase react-router-dom@6 react-firebase-hooks react-toastify react-helmet-async react-day-picker date-fns axios react-query
 ```
