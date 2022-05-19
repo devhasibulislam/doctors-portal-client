@@ -19,7 +19,7 @@ const Reset = () => {
         error
     ] = useSendPasswordResetEmail(auth);
 
-    const handleResetForm = async(event) => {
+    const handleResetForm = async (event) => {
         event.preventDefault();
 
         const email = event.target.email.value;

@@ -6,7 +6,7 @@ import PageTitle from '../../components/PageTitle/PageTitle';
 
 const Dashboard = () => {
     const [date, setDate] = useState(new Date());
-    const formattedDate = format(date, "PP");
+    // const formattedDate = format(date, "PP");
     const [showCalender, setShowCalender] = useState(false);
 
     return (
@@ -16,11 +16,12 @@ const Dashboard = () => {
                 <input id="dashboard-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content p-4">
                     {/* <!-- Page content here --> */}
+                    <div className='flex justify-between items-center mb-4'>
+                        <h1 className='text-2xl text-purple-500'>My Appointment</h1>
+                        {/* clickable button is here */}
+                        <button className='btn text-white' onClick={() => setShowCalender(!showCalender)}>{date ? format(date, "PP"): 'Choose a date'}</button>
+                    </div>
                     <div className='relative'>
-                        <div className='flex justify-between items-center mb-4'>
-                            <h1 className='text-2xl text-purple-500'>My Appointment</h1>
-                            <button className='btn text-white' onClick={()=>setShowCalender(!showCalender)}>{formattedDate}</button>
-                        </div>
                         <div className={`absolute right-0 bg-white shadow rounded-lg z-20 ${!showCalender && "hidden"}`}>
                             <DayPicker
                                 mode="single"
@@ -38,6 +39,7 @@ const Dashboard = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to={'/dashboard'}>My Appointments</Link></li>
                         <li><Link to={'/dashboard/reviews'}>My Reviews</Link></li>
+                        <li><Link to={'/dashboard/users'}>All Users</Link></li>
                     </ul>
 
                 </div>

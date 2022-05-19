@@ -17,7 +17,10 @@ const Navbar = () => {
             user
                 ?
                 <li className='shadow rounded-xl'
-                    onClick={() => signOut(auth)}>
+                    onClick={() => {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                    }}>
                     <CustomLink to='/login'>
                         <span className='bg-secondary px-3 py-1 rounded-full'>{user?.displayName?.split(' ')[0]}</span>
                         <span className='border mx-1'></span>
@@ -48,7 +51,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end lg:hidden">
-                    <label for="dashboard-drawer" tabIndex="1" className="btn btn-ghost lg:hidden">
+                    <label htmlFor="dashboard-drawer" tabIndex="1" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                 </div>

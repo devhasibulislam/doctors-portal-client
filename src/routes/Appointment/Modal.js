@@ -47,7 +47,7 @@ const Modal = (props) => {
         setFormSubmitted(true)
         event.target.reset();
     };
-    
+
     return (
         <div>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />

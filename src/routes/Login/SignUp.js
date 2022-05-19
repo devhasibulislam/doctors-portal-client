@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import { toast } from 'react-toastify';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
-    const [user] = useAuthState(auth);
-
     const [
         signInWithGoogle,
         userG,
@@ -30,10 +29,12 @@ const SignUp = () => {
         errorEP,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [token] = useToken(userG || userEP);
+
     const navigate = useNavigate();
 
     // sign up with email and password
-    const handleRegistrationForm = async(event) => {
+    const handleRegistrationForm = async (event) => {
         event.preventDefault();
 
         const name = event.target.name.value;
@@ -42,7 +43,7 @@ const SignUp = () => {
 
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
-        
+
         toast(`verification sent to this ${email}`);
         event.target.reset();
     };
@@ -52,7 +53,13 @@ const SignUp = () => {
         await signInWithGoogle();
     };
 
-    if (userG || userEP || user) {
+    if (loadingG || loadingEP || updating) {
+        return <Loading />
+    }
+
+    if (token) {
+        // console.log(user || userG || userEP);
+        // console.log(user || token);
         navigate('/home');
     }
 
@@ -64,7 +71,7 @@ const SignUp = () => {
                     <div className="w-full p-6 m-auto bg-white rounded-md shadow-lg lg:max-w-md">
                         <h1 className="text-3xl font-semibold text-center text-primary">REGISTRATION</h1>
                         {(loadingG || loadingEP || updating) && <Loading />}
-                        {(errorG && <Error message={errorG?.message} />) || (errorEP && <Error message={errorEP?.message}/>) || (errorUP && <Error message={errorUP?.message} />)}
+                        {(errorG && <Error message={errorG?.message} />) || (errorEP && <Error message={errorEP?.message} />) || (errorUP && <Error message={errorUP?.message} />)}
                         <form
                             className="mt-6"
                             onSubmit={handleRegistrationForm}

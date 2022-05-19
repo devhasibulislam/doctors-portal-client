@@ -1,9 +1,9 @@
 import React from 'react';
 
 const AppointmentTable = ({ myAppointment, index }) => {
-    const { patientName, treatmentName, appointmentTime} = myAppointment;
+    const { patientName, treatmentName, appointmentTime } = myAppointment;
     return (
-        <tr class="hover">
+        <tr className="hover">
             <th>{index + 1}</th>
             <td>{patientName}</td>
             <td>{treatmentName}</td>

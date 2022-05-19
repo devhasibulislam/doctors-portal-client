@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [user] = useAuthState(auth);
@@ -23,9 +24,17 @@ const Login = () => {
         errorEP,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token] = useToken(userG || userEP);
+
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, navigate, from]);
 
     // sign in with email and password
     const handleLoginForm = async (event) => {
@@ -44,10 +53,9 @@ const Login = () => {
         await signInWithGoogle();
     };
 
-    if (userG || userEP || user) {
-        navigate(from, { replace: true });
+    if (loadingG || loadingEP) {
+        return <Loading />
     }
-
 
     return (
         <div className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:w-1/2 md:w-1/2 w-full lg:px-0 md:px-0 px-4'>
