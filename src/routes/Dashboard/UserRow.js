@@ -3,11 +3,27 @@ import { toast } from 'react-toastify';
 
 const UserRow = ({ index, user, refetch }) => {
     const { email, role } = user;
+    const handleRemoveUser = (email) => {
+        fetch(`http://localhost:5000/user/${email}`, {
+            method: "DELETE",
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(request => request.json())
+            .then(response => {
+                console.log(response)
+                if (response.deletedCount) {
+                    toast.success(`deletion ${email} success`);
+                    refetch();
+                }
+            })
+    };
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: "PUT",
             headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => {
@@ -28,8 +44,8 @@ const UserRow = ({ index, user, refetch }) => {
         <tr>
             <th>{index + 1}</th>
             <td>{email}</td>
-            <td>{!role && <button onClick={() => makeAdmin()} className='btn btn-primary'>Make Admin</button>}</td>
-            <td><button className='btn btn-secondary'>Remove User</button></td>
+            <td>{!role && <button onClick={() => makeAdmin()} className='btn btn-primary btn-sm'>Make Admin</button>}</td>
+            <td><button className='btn btn-secondary btn-sm' onClick={() => handleRemoveUser(email)}>Remove User</button></td>
         </tr>
     );
 };

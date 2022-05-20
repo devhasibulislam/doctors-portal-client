@@ -7,7 +7,7 @@ const DeleteBox = ({ deleteDoctor, refetch, setDeleteDoctor }) => {
         fetch(`http://localhost:5000/doctor/${email}`, {
             method: "DELETE",
             headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(request => request.json())

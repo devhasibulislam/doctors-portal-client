@@ -1,7 +1,6 @@
 import React from 'react';
-import { toast } from 'react-toastify';
 
-const DoctorRow = ({ index, doctor, refetch, setDeleteDoctor }) => {
+const DoctorRow = ({ index, doctor, setDeleteDoctor }) => {
     const { name, img, specialty } = doctor;
 
     return (
@@ -18,7 +17,7 @@ const DoctorRow = ({ index, doctor, refetch, setDeleteDoctor }) => {
             <td>{name}</td>
             <td>{specialty}</td>
             <td>
-                <label for="my-modal-6" onClick={() => setDeleteDoctor(doctor)} className="btn btn-active bg-red-500 border-0 text-white">Remove</label>
+                <label for="my-modal-6" onClick={() => setDeleteDoctor(doctor)} className="btn btn-active btn-sm bg-red-500 border-0 text-white">Remove</label>
             </td>
         </tr>
     );

@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 
 const Modal = (props) => {
     const { treatment, date, refetch } = props;
-    const { _id, name, slots } = treatment;
+    const { _id, name, slots, price } = treatment;
     const [formSubmitted, setFormSubmitted] = useState(false);
     const [user] = useAuthState(auth);
     const formattedDate = format(date, "PP");
@@ -27,6 +27,7 @@ const Modal = (props) => {
             patientEmail: email,
             patientPhone: phone,
             appointmentTime: slot,
+            price: price,
             appointmentDate: formattedDate
         };
 
@@ -54,7 +55,7 @@ const Modal = (props) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2 text-white" onClick={() => setFormSubmitted(false)}>✕</label>
-                    <h3 className="font-bold text-lg text-primary">{name}</h3>
+                    <h3 className="font-bold text-lg text-primary">{name} | <span className='text-red-500'>$<span className='text-xl text-green-500'>{price}</span></span></h3>
                     <form className='mt-8 grid grid-cols-1 gap-4' onSubmit={handleBookingSubmit}>
                         <input type="text" value={name} disabled className="input input-bordered w-full" />
                         <select

@@ -50,6 +50,7 @@ const Services = (props) => {
                                     }
                                 </p>
                                 <p className={`text-center ${service.slots.length === 0 ? 'text-red-500' : 'text-primary'}`}>{service.slots.length} {service.slots.length === 0 ? 'SPACE' : 'SPACES'} AVAILABLE</p>
+                                <p className='text-center flex justify-center items-center'>$<span className='text-xl text-green-500'>{service.price}</span></p>
                                 <div className="card-actions justify-center">
                                     <label
                                         htmlFor="booking-modal"

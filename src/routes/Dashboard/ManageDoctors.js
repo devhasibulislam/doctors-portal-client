@@ -9,7 +9,7 @@ const ManageDoctors = () => {
     const { data: doctors, isLoading, refetch } = useQuery('doctor', () => fetch('http://localhost:5000/doctor', {
         method: "GET",
         headers: {
-            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
 
@@ -37,7 +37,6 @@ const ManageDoctors = () => {
                                 key={doctor._id}
                                 index={index}
                                 doctor={doctor}
-                                refetch={refetch}
                                 setDeleteDoctor={setDeleteDoctor}
                             />)
                         }
