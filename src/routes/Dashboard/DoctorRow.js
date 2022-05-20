@@ -1,25 +1,9 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DoctorRow = ({ index, doctor, refetch }) => {
-    const { name, img, specialty, email } = doctor;
+const DoctorRow = ({ index, doctor, refetch, setDeleteDoctor }) => {
+    const { name, img, specialty } = doctor;
 
-    const handleRemoveDoctor = (email) => {
-        fetch(`http://localhost:5000/doctor/${email}`, {
-            method: "DELETE",
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        })
-        .then(request => request.json())
-            .then(response => {
-                console.log(response)
-                if (response.deletedCount) {
-                    toast.success(`deletion ${name} success`);
-                    refetch();
-                }
-            })
-    };
     return (
         <tr className='hover'>
             <th>{index + 1}</th>
@@ -34,7 +18,7 @@ const DoctorRow = ({ index, doctor, refetch }) => {
             <td>{name}</td>
             <td>{specialty}</td>
             <td>
-                <button class="btn btn-active btn-primary text-white" onClick={() => handleRemoveDoctor(email)}>Remove</button>
+                <label for="my-modal-6" onClick={() => setDeleteDoctor(doctor)} className="btn btn-active bg-red-500 border-0 text-white">Remove</label>
             </td>
         </tr>
     );
