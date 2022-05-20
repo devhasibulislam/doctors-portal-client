@@ -32,7 +32,7 @@ const Modal = (props) => {
         };
 
         const getBooking = async () => {
-            const url = `http://localhost:5000/booking`;
+            const url = `https://pure-tor-94821.herokuapp.com/booking`;
             const { data } = await axios.post(url, booking);
             console.log(data);
             if (data.success) {

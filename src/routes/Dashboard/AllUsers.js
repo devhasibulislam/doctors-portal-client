@@ -4,7 +4,7 @@ import Loading from '../../components/Loading/Loading';
 import UserRow from './UserRow';
 
 const AllUsers = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://pure-tor-94821.herokuapp.com/user', {
         method: "GET",
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`

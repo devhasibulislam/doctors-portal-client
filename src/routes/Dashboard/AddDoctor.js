@@ -7,7 +7,7 @@ import Loading from '../../components/Loading/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    const { data: services, isLoading } = useQuery('services', () => fetch('http://localhost:5000/services').then(res => res.json()))
+    const { data: services, isLoading } = useQuery('services', () => fetch('https://pure-tor-94821.herokuapp.com/services').then(res => res.json()))
 
     // const imageStorageKey = '4295ac4d47b569312bea67b440cdbdbb';
     const imageStorageKey = '104449008997c085d936fea4a24f3297';
@@ -41,7 +41,7 @@ const AddDoctor = () => {
                     }
                     console.log(doctor);
                     // send to your database 
-                    fetch('http://localhost:5000/doctor', {
+                    fetch('https://pure-tor-94821.herokuapp.com/doctor', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
