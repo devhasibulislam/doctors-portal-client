@@ -1,13 +1,18 @@
 import { format } from 'date-fns';
 import React, { useState } from 'react';
 import { DayPicker } from 'react-day-picker';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, Outlet } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
 
 const Dashboard = () => {
     const [date, setDate] = useState(new Date());
     // const formattedDate = format(date, "PP");
     const [showCalender, setShowCalender] = useState(false);
+    const [user] = useAuthState(auth);
+    const [admin] = useAdmin(user);
 
     return (
         <div>
@@ -39,7 +44,7 @@ const Dashboard = () => {
                         {/* <!-- Sidebar content here --> */}
                         <li><Link to={'/dashboard'}>My Appointments</Link></li>
                         <li><Link to={'/dashboard/reviews'}>My Reviews</Link></li>
-                        <li><Link to={'/dashboard/users'}>All Users</Link></li>
+                        {admin && <li><Link to={'/dashboard/users'}>All Users</Link></li>}
                     </ul>
 
                 </div>

@@ -15,6 +15,7 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Dashboard from './routes/Dashboard/Dashboard';
 import MyAppointments from './routes/Dashboard/MyAppointments';
 import AllUsers from './routes/Dashboard/AllUsers';
+import RequireAdmin from './components/RequireAdmin/RequireAdmin';
 
 function App() {
   return (
@@ -37,7 +38,11 @@ function App() {
         } >
           <Route index element={<MyAppointments />} /> {/* default one */}
           <Route path='/dashboard/reviews' element={<Reviews />} />
-          <Route path='/dashboard/users' element={<AllUsers />}></Route>
+          <Route path='/dashboard/users' element={
+            <RequireAdmin>
+              <AllUsers />
+            </RequireAdmin>
+          }></Route>
         </Route>
         <Route path='/contactUs' element={<ContactUs />} />
         <Route path='/login' element={<Login />} />
