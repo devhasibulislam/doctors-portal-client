@@ -16,6 +16,8 @@ import Dashboard from './routes/Dashboard/Dashboard';
 import MyAppointments from './routes/Dashboard/MyAppointments';
 import AllUsers from './routes/Dashboard/AllUsers';
 import RequireAdmin from './components/RequireAdmin/RequireAdmin';
+import AddDoctor from './routes/Dashboard/AddDoctor';
+import ManageDoctors from './routes/Dashboard/ManageDoctors';
 
 function App() {
   return (
@@ -43,6 +45,18 @@ function App() {
               <AllUsers />
             </RequireAdmin>
           }></Route>
+          <Route
+            path='/dashboard/addDoctor'
+            element={<RequireAdmin>
+              <AddDoctor />
+            </RequireAdmin>}
+          ></Route>
+          <Route
+            path='/dashboard/manageDoctor'
+            element={<RequireAdmin>
+              <ManageDoctors />
+            </RequireAdmin>}
+          ></Route>
         </Route>
         <Route path='/contactUs' element={<ContactUs />} />
         <Route path='/login' element={<Login />} />
