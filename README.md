@@ -1,6 +1,7 @@
 # Doctors Portal
 `Live site`: [click here](https://doctors-portal-d1164.web.app/)  
 `Server side code repo`: [click here](https://github.com/hasibulislam999/doctors-portal-server)
+`Server link`: [click here](https://pure-tor-94821.herokuapp.com/)
 
 **Wanna use this as your client side**
 ```bash
