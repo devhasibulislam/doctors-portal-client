@@ -34,7 +34,7 @@ const Appointment = () => {
     return (
         <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-0 px-4 -mt-8'>
             {
-                appointmentInformations.map(appointmentInformation => <div
+                appointmentInformations?.map(appointmentInformation => <div
                     key={appointmentInformation._id}
                     className={`card card-side lg:flex-row md:flex-row flex-col
                         ${appointmentInformation._id !== 2 ? `bg-gradient-to-r from-[${appointmentInformation.bgFrom}] to-[${appointmentInformation.bgTo}]` : 'bg-[#3A4256]'} 

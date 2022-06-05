@@ -32,7 +32,7 @@ const Services = () => {
             <h2 className='text-center text-5xl mt-4'>Services We Provide</h2>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-4 px-4 lg:-mt-10 md:-mt-10 mt-4'>
                 {
-                    servicesInformations.map(serviceInformation => <div
+                    servicesInformations?.map(serviceInformation => <div
                         key={serviceInformation._id}
                         className="card glass pt-8">
                         <figure><img src={serviceInformation.img} alt="car!" /></figure>

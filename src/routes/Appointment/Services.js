@@ -38,7 +38,7 @@ const Services = (props) => {
                 {/* {loading && <Loading />} */}
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-12 lg:px-0 md:px-4 px-4 mt-10'>
                     {
-                        services.map(service => <div
+                        services?.map(service => <div
                             className="card bg-base-100 shadow-xl"
                             key={service._id}
                         >

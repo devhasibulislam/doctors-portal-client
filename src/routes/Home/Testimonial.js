@@ -38,7 +38,7 @@ const Testimonial = () => {
                 <h2 className='text-3xl mt-4'>Make an appointment today</h2>
                 <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 lg:px-0 md:px-4 px-4 mt-16'>
                     {
-                        testimonials.map(testimonial => <div
+                        testimonials?.map(testimonial => <div
                             key={testimonial._id}
                             className="card glass pt-8 pl-8 pr-8 shadow-2xl">
                             <p>{testimonial.desc}</p>
