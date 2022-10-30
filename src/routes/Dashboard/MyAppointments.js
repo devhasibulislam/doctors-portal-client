@@ -15,7 +15,7 @@ const MyAppointments = () => {
     useEffect(() => {
         if (user) {
             const getMyAppointments = async () => {
-                const url = `https://pure-tor-94821.herokuapp.com/bookings?email=${user?.email}`;
+                const url = `https://doctors-portal-dp-server.onrender.com/bookings?email=${user?.email}`;
                 const res = await axios.get(url, {
                     method: "GET",
                     headers: {

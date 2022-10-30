@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L1UJyGRKrLWu7ojISpbxVO8rKxWSJ44p1Yt6
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://pure-tor-94821.herokuapp.com/booking/${id}`;
+    const url = `https://doctors-portal-dp-server.onrender.com/booking/${id}`;
     const { data: appointment, isLoading } = useQuery(['booking', id], () => fetch(url, {
         method: "GET",
         headers: {

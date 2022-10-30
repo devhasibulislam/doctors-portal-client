@@ -13,7 +13,7 @@ const Services = (props) => {
     const formattedDate = format(selected, "PP");
 
     const { data: services, isLoading, refetch } = useQuery(['available', formattedDate], () =>
-        fetch(`https://pure-tor-94821.herokuapp.com/available?date=${formattedDate}`)
+        fetch(`https://doctors-portal-dp-server.onrender.com/available?date=${formattedDate}`)
             .then(request => request.json())
     )
 
@@ -23,7 +23,7 @@ const Services = (props) => {
 
     // useEffect(() => {
     //     const getServices = async () => {
-    //         const url = `https://pure-tor-94821.herokuapp.com/available?date=${formattedDate}`;
+    //         const url = `https://doctors-portal-dp-server.onrender.com/available?date=${formattedDate}`;
     //         const { data } = await axios.get(url);
     //         setServices(data);
     //         setLoading(false);

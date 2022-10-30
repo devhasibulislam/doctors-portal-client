@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteBox = ({ deleteDoctor, refetch, setDeleteDoctor }) => {
     const { name, email } = deleteDoctor;
     const handleRemoveDoctor = (email) => {
-        fetch(`https://pure-tor-94821.herokuapp.com/doctor/${email}`, {
+        fetch(`https://doctors-portal-dp-server.onrender.com/doctor/${email}`, {
             method: "DELETE",
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

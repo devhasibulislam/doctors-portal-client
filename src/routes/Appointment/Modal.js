@@ -32,7 +32,7 @@ const Modal = (props) => {
         };
 
         const getBooking = async () => {
-            const url = `https://pure-tor-94821.herokuapp.com/booking`;
+            const url = `https://doctors-portal-dp-server.onrender.com/booking`;
             const { data } = await axios.post(url, booking);
             console.log(data);
             if (data.success) {

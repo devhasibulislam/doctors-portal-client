@@ -14,7 +14,7 @@ const CheckoutForm = ({ appointment }) => {
     const { price, patientName, patientEmail, _id } = appointment;
 
     // useEffect(() => {
-    //     fetch('https://pure-tor-94821.herokuapp.com/create-payment-intent', {
+    //     fetch('https://doctors-portal-dp-server.onrender.com/create-payment-intent', {
     //         method: "POST",
     //         headers: {
     //             "content-type": "application/json",
@@ -27,7 +27,7 @@ const CheckoutForm = ({ appointment }) => {
     // }, [price]);
 
     useEffect(() => {
-        fetch('https://pure-tor-94821.herokuapp.com/create-payment-intent', {
+        fetch('https://doctors-portal-dp-server.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -94,7 +94,7 @@ const CheckoutForm = ({ appointment }) => {
                 transactionId: paymentIntent.id
             }
 
-            fetch(`https://pure-tor-94821.herokuapp.com/booking/${_id}`, {
+            fetch(`https://doctors-portal-dp-server.onrender.com/booking/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
